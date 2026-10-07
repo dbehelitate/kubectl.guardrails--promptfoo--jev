@@ -1,0 +1,38 @@
+apiVersion: agentgateway.dev/v1alpha1
+kind: Gateway
+metadata:
+  name: edge-gateway
+  namespace: default
+spec:
+  listeners:
+    - port: 8080
+      protocol: HTTP
+---
+apiVersion: agentgateway.dev/v1alpha1
+kind: LLMRoute
+metadata:
+  name: llm-protected-route
+  namespace: default
+spec:
+  parentRefs:
+    - name: edge-gateway
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /v1/chat/completions
+      backendRefs:
+        # Route traffic to the httpbun mock simulating an LLM
+        - name: mock-llm
+          url: "http://mock-llm.default.svc.cluster.local"
+          # httpbun setup to return a static mock response
+          rewrite:
+            path: "/any/{\"id\":\"chatcmpl-123\",\"object\":\"chat.completion\",\"choices\":[{\"message\":{\"role\":\"assistant\",\"content\":\"This is a benign mock response from the upstream LLM.\"}}]}"
+      filters:
+        - type: Guardrail
+          guardrail:
+            webhook:
+              # Ingress Guardrail evaluating the prompt BEFORE forwarding
+              url: "http://jev-webhook.default.svc.cluster.local:5000/guardrail/jev"
+              timeout: 500ms
+              failureMode: Deny

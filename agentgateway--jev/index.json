@@ -1,0 +1,29 @@
+{
+  "title": "Agentgateway Guardrails with Jev (K8s)",
+  "description": "Configure Agentgateway on Kubernetes to intercept LLM prompts and validate them using a mock TypeSafe Jev webhook.",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1: Meet the Team (Verify Infrastructure)",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2: Let's test the Guard Dog!",
+        "text": "step2.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": ""
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
