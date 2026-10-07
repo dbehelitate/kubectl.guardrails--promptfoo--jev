@@ -1,12 +1,13 @@
 WORK IN PROGRESS !!!
-
+SETUP: COMPLETE
+CYBERSECURITY SIMULATIONS: IN LABORATORY.
 
 
 
 <div align="center">
 
 # ⚡ [ killerctl ] ⚡
-### *Zero-Setup / AI Evals & Guardrails Sandbox*
+#### *Zero-Setup / AI Evals & Guardrails Sandbox*
 
 [![Platform](https://img.shields.io/badge/PLATFORM-KILLERCODA-1e293b?style=flat-square&logo=linux&logoColor=00e5ff)]()
 [![Stack](https://img.shields.io/badge/STACK-K8S%20%7C%20AGENTGATEWAY-1e293b?style=flat-square&logo=kubernetes&logoColor=34d399)]()
