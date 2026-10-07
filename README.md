@@ -8,8 +8,10 @@ WORK IN PROGRESS !!!
 # ⚡ [ killerctl ] ⚡
 ### *Zero-Setup / AI Evals & Guardrails Sandbox*
 
-[![Platform](https://img.shields.io/badge/KILLERCODA-BROWSER%20LABS-00e5ff?style=flat-square&logo=linux&logoColor=black)]()
-[![Stack](https://img.shields.io/badge/STACK-K8S%20%7C%20AGENTGATEWAY-00ff66?style=flat-square&logo=kubernetes&logoColor=black)]()
+[![Platform](https://img.shields.io/badge/PLATFORM-KILLERCODA-1e293b?style=flat-square&logo=linux&logoColor=00e5ff)]()
+[![Stack](https://img.shields.io/badge/STACK-K8S%20%7C%20AGENTGATEWAY-1e293b?style=flat-square&logo=kubernetes&logoColor=34d399)]()
+[![Guard](https://img.shields.io/badge/GUARD-JEV%20AI-1e293b?style=flat-square&logo=anthropic&logoColor=f43f5e)]()
+[![Test](https://img.shields.io/badge/TEST-PROMPTFOO-1e293b?style=flat-square&logo=jest&logoColor=a855f7)]()
 
 </div>
 
