@@ -6,7 +6,7 @@ Install the official Kubernetes Gateway API CRDs:
 
 Deploy the Agentgateway Control Plane via Helm:
 
-`helm repo add agentgateway https://charts.agentgateway.dev && helm repo update`{{exec}}
+`helm repo add agentgateway https://charts.agentgateway.dev && helm repo update && echo "Helm repo setup complete"`{{exec}}
 
 `helm install agentgateway agentgateway/agentgateway --namespace agentgateway-system --create-namespace --wait`{{exec}}
 
@@ -55,9 +55,9 @@ Apply Deployment and Service:
 
 `kubectl apply -f manifests/02-httpbun-service.yaml`{{exec}}
 
-Wait for the deployment rollout (max 15 seconds):
+Wait for the deployment rollout (max 30 seconds):
 
-`kubectl rollout status deployment/httpbun --timeout=15s`{{exec}}
+`kubectl rollout status deployment/httpbun --timeout=30s`{{exec}}
 
 ---
 
@@ -105,6 +105,10 @@ Apply Gateway and HTTPRoute:
 `kubectl apply -f manifests/03-gateway.yaml`{{exec}}
 
 `kubectl apply -f manifests/04-httproute.yaml`{{exec}}
+
+Wait for the Gateway to be ready:
+
+`kubectl wait --for=condition=ready gateway/agentgateway-main --timeout=30s 2>/dev/null || kubectl describe gateway/agentgateway-main`{{exec}}
 
 Verify route binding:
 
