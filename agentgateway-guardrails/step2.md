@@ -48,6 +48,8 @@ Apply the policy to activate guardrails on the HTTPRoute:
 
 `kubectl apply -f manifests/05-agentgateway-policy.yaml`{{exec}}
 
-Verify policy status:
+Verify policy status and confirm it is accepted:
+
+`kubectl describe agentgatewaypolicy llm-strict-guardrails`{{exec}}
 
 `kubectl get agentgatewaypolicy llm-strict-guardrails`{{exec}}
