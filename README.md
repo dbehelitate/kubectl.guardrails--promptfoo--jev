@@ -5,7 +5,7 @@ WORK IN PROGRESS !!!
 
 <div align="center">
 
-# ⚡ [ KILLERCODA NEXUS ] ⚡
+# ⚡ [ killerctl ] ⚡
 ### *Zero-Setup / AI Evals & Guardrails Sandbox*
 
 [![Platform](https://img.shields.io/badge/KILLERCODA-BROWSER%20LABS-00e5ff?style=flat-square&logo=linux&logoColor=black)]()
