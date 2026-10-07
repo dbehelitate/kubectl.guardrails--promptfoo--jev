@@ -1,0 +1,14 @@
+{
+  "title": "Agent Gateway Scenarios",
+  "description": "Playgrounds Agent Gateway con JEV e Promptfoo",
+  "items": [
+    {
+      "path": "agentgateway--jev",
+      "title": "Agent Gateway - JEV"
+    },
+    {
+      "path": "agentgateway--promptfoo",
+      "title": "Agent Gateway - Promptfoo"
+    }
+  ]
+}
