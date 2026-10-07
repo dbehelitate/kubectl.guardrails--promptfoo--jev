@@ -1,0 +1,22 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: llm-mock-route
+  namespace: default
+spec:
+  parentRefs:
+  - name: agentgateway-main
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /v1/chat/completions
+    filters:
+    - type: URLRewrite
+      urlRewrite:
+        path:
+          type: ReplaceFullPath
+          replaceFullPath: /post
+    backendRefs:
+    - name: httpbun
+      port: 80

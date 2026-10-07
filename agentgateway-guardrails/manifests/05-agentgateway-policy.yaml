@@ -1,0 +1,36 @@
+apiVersion: security.agentgateway.dev/v1alpha1
+kind: AgentgatewayPolicy
+metadata:
+  name: llm-strict-guardrails
+  namespace: default
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: llm-mock-route
+  rules:
+    - name: block-prompt-injection
+      scope: Messages
+      match:
+        regex: 
+          - "(?i)ignore all previous instructions"
+          - "(?i)reveal system keys"
+          - "(?i)bypass protocol"
+      action: Reject
+      message: "Security Alert: Prompt injection detected."
+      statusCode: 403
+
+    - name: block-pii-inputs
+      scope: Messages
+      match:
+        builtins: ["Email", "PhoneNumber", "Ssn", "CaSin"]
+      action: Reject
+      message: "Privacy Alert: Prohibited PII detected in prompt."
+      statusCode: 400
+
+    - name: mask-sensitive-outputs
+      scope: ToolOutput
+      match:
+        builtins: ["CreditCard"]
+      action: Mask
+      maskCharacter: "*"

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpbun
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httpbun
+  template:
+    metadata:
+      labels:
+        app: httpbun
+    spec:
+      containers:
+      - name: httpbun
+        image: sharat87/httpbun
+        ports:
+        - containerPort: 80

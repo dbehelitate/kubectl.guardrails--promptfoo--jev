@@ -1,0 +1,42 @@
+{
+  "title": "LLM Guardrails with Agentgateway",
+  "description": "Secure AI endpoints using Kubernetes Gateway API, regex filtering, PII detection, and response masking.",
+  "details": {
+    "steps": [
+      {
+        "title": "Deploying Gateway API & Mock AI Provider",
+        "text": "step1.md"
+      },
+      {
+        "title": "Applying Multi-Layered Guardrails",
+        "text": "step2.md"
+      },
+      {
+        "title": "Validating Guardrails with cURL",
+        "text": "step3.md"
+      },
+      {
+        "title": "Gateway Topology & Inspection with gwctl",
+        "text": "step4.md"
+      },
+      {
+        "title": "Automated Security Testing with Promptfoo",
+        "text": "step5.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "Agentgateway"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "image": "ubuntu:22.04"
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
